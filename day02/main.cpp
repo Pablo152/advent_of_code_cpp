@@ -28,15 +28,25 @@ std::vector<std::string> vectorify(std::string path)
 
 
 int main() {
-    auto rules = vectorify("./input.txt");
+    auto rules = vectorify("../input.txt");
     int validPasswords = 0;
 
     for (auto & r : rules) {
+        // String is split into 4 elements and assigned to the variables below.
         auto x = split(r, "[- ]");
-        x[2].erase(remove(x[2].begin(), x[2].end(), ':'), x[2].end()); //remove : from string
-        size_t count = std::count(x[3].begin(), x[3].end(), x[2].at(0));
 
-        if(count >= std::stoi(x[0]) && count <= std::stoi(x[1]))
+        std::string minValue = x[0];
+        std::string maxValue = x[1];
+        std::string charToCount = x[2];
+        std::string stringToCmp = x[3];
+
+        //remove : from string
+        charToCount.erase(remove(charToCount.begin(), charToCount.end(), ':'), charToCount.end());
+
+        // count all the occurrences of the char in the string.
+        size_t count = std::count(stringToCmp.begin(), stringToCmp.end(), charToCount.at(0));
+
+        if(count >= std::stoi(minValue) && count <= std::stoi(maxValue))
             ++validPasswords;
     }
     std::cout << validPasswords << std::endl;

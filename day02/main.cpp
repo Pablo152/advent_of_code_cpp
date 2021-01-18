@@ -2,7 +2,6 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include <map>
 #include <regex>
 
 std::vector<std::string> split(const std::string& input, const std::string& regex) {

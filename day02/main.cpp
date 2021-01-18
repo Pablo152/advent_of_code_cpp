@@ -27,7 +27,7 @@ std::vector<std::string> vectorify(std::string path)
 
 
 int main() {
-    auto rules = vectorify("/input.txt");
+    auto rules = vectorify("./input.txt");
     int validPasswords = 0;
 
     for (auto & r : rules) {

@@ -2,7 +2,6 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include <map>
 #include <regex>
 
 std::vector<std::string> split(const std::string& input, const std::string& regex) {
@@ -28,7 +27,7 @@ std::vector<std::string> vectorify(std::string path)
 
 
 int main() {
-    auto rules = vectorify("../input.txt");
+    auto rules = vectorify("./input.txt");
     int validPasswords = 0;
 
     for (auto & r : rules) {

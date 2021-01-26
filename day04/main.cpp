@@ -49,8 +49,6 @@ public:
         bool valid = false;
         std::string value = hcl.substr(1, hcl.size());
         if (hcl[0] == '#' && value.size() == 6) {
-            // Would throw an error if contains invalid characters but it seems
-            // puzzle input doesn't do this.
             std::stoi(value, 0, 16);
             valid = true;
         }
